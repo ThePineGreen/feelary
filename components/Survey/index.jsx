@@ -66,7 +66,7 @@ export const Survey = (props) => {
             onClick={handleSubmit}
             className='rounded-md h-10 px-6 bg-teal-400 mx-auto shadow-md text-white dark:text-zinc-900 shadow-teal-500/50 hover:bg-teal-500 active:bg-teal-600'
           >
-            Save note
+            Submit
           </button>
         </form>
       </div>
