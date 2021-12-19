@@ -1,0 +1,75 @@
+import React, { useState } from "react";
+import { Input } from "./Input";
+import { InputLabel } from "./InputLabel";
+import { Textarea } from "./Textarea";
+
+export const Survey = (props) => {
+
+  const [situation, setSituation] = useState('');
+  const [feel, setFeel] = useState('');
+  const [percent, setPersent] = useState('');
+  const [thoughts, setThoughts] = useState('');
+
+  const onSituationChange = (value) => setSituation(value);
+  const handlePercentValue = (value) => {
+    if (value === '' || value.match('\D+')) {
+      setPersent('');
+      return;
+    }
+    if (value < 0 || value > 100) {
+      alert(value);
+      return;
+    }
+    setPersent(value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const result = {
+      situation,
+      feel,
+      percent,
+      thoughts,
+    };
+    props.onSubmit(result);
+  }
+
+  return (
+    <main className="flex flex-col items-center w-full flex-1 py-16 px-20 overflow-scroll">
+      <h2 className='text-4xl font-medium mb-6 text-zinc-900 dark:text-white'>
+        How do you feeling today?
+      </h2>
+      <div className='w-full max-w-xl'>
+        <form className="grid grid-cols-1 gap-6">
+          <label className='block'>
+            <InputLabel>
+              Situation
+            </InputLabel>
+            <Textarea required value={situation} onChange={onSituationChange} />
+          </label>
+          <span className='border-b border-zinc-200 dark:border-zinc-700 mx-24'></span>
+          <label className="block">
+            <InputLabel>Feel</InputLabel>
+            <Input required value={feel} onChange={(value) => setFeel(value)} />
+          </label>
+          <label className='block'>
+            <InputLabel>How much in %</InputLabel>
+            <Input value={percent} onChange={handlePercentValue} />
+          </label>
+          <span className='border-b border-zinc-200 dark:border-zinc-700 mx-24'></span>
+          <label className='block'>
+            <InputLabel>Automatic Thoughts</InputLabel>
+            <Textarea value={thoughts} onChange={(value) => setThoughts(value)} />
+          </label>
+          <button
+            type='submit'
+            onClick={handleSubmit}
+            className='rounded-md h-10 px-6 bg-teal-400 mx-auto shadow-md text-white dark:text-zinc-900 shadow-teal-500/50 hover:bg-teal-500 active:bg-teal-600'
+          >
+            Save note
+          </button>
+        </form>
+      </div>
+    </main>
+  );
+};
