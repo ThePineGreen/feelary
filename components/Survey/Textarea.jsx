@@ -9,7 +9,7 @@ export const Textarea = (props) => {
   return (
     <textarea className='mt-1 block w-full rounded-md shadow-sm
     border-gray-300 dark:text-zinc-200
-    focus:border-teal-300 focus:ring focus:ring-teal-200 focus:ring-opacity-50 
+    focus:border-teal-300 dark:focus:border-teal-200 focus:ring focus:ring-teal-200 focus:ring-opacity-50 
     dark:bg-zinc-700 dark:border-black'
       value={props.value} onChange={handleChange} />
   );

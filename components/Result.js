@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
-import { getMonthName } from "../helpers/dateHelper";
 import { Calendar } from "./Calendar";
 import { Progress } from "./Progress";
 
@@ -17,16 +15,16 @@ export const Result = (props) => {
   });
 
   return (
-    <div ref={componentRef} className="mx-auto max-w-4xl mt-16 print:flex print:items-center print:justify-center print:px-12">
+    <div ref={componentRef} className="mx-auto w-7/12 mt-16 print:flex print:items-center print:justify-center print:px-12">
       <div className="flex flex-col">
-        <div className="flex flex-row">
+        <div className="flex flex-row mb-4">
           <p className="hidden print:block font-['Arsenal'] font-semibold text-zinc-800 text-xl">feelary</p>
           <Calendar />
         </div>
         <div className="flex flex-col">
           <div className="flex">
             <div className="flex flex-col mt-6">
-              <Progress sqSize={180} percentage={props.result?.percent} />
+              <Progress sqSize={props.result?.situation.length <150 ? 100 : 180} percentage={props.result?.percent} />
               <h4 className="text-xl mt-2 py-2 text-center text-zinc-800 dark:text-zinc-200">
                 {props.result?.feel}
               </h4>
@@ -42,23 +40,23 @@ export const Result = (props) => {
               </p>
             </div>
           </div>
-          <div className="flex flex-row">
-            <button
-              type="button"
-              onClick={handleSave}
-              className="mt-16 text-white dark:text-zinc-900 bg-emerald-400 shadow-md shadow-emerald-400/50 hover:bg-emerald-500 active:bg-emerald-600 py-2 px-4 rounded mx-auto print:hidden"
-            >
-              Save as PDF
-            </button>
-            <button
-              type="button"
-              onClick={handleClick}
-              className="mt-16 border text-emerald-400 dark:text-emerald-400 border-emerald-400 shadow-md shadow-emerald-400/20 hover:shadow-emerald-400/50 active:shadow-emerald-400/70 py-2 px-4 rounded mx-auto print:hidden"
-            >
-              New record
-            </button>
-          </div>
         </div>
+      </div>
+      <div>
+        <button
+          type="button"
+          onClick={handleSave}
+          className="mt-16 text-white dark:text-zinc-900 bg-teal-400 shadow-md shadow-teal-400/50 hover:bg-teal-500 active:bg-teal-600 py-2 px-4 rounded mx-auto print:hidden"
+        >
+          Save as PDF
+        </button>
+        <button
+          type="button"
+          onClick={handleClick}
+          className="mt-16 ml-4 border text-teal-400 dark:text-teal-400 border-teal-400 shadow-md shadow-teal-400/20 hover:shadow-teal-400/50 active:shadow-teal-400/70 py-2 px-4 rounded mx-auto print:hidden"
+        >
+          New record
+        </button>
       </div>
     </div>
   );
