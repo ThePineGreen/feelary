@@ -8,20 +8,20 @@ export const Survey = (props) => {
 
   const [situation, setSituation] = useState('');
   const [feel, setFeel] = useState('');
-  const [percent, setPersent] = useState('');
+  const [percent, setPercent] = useState('');
   const [thoughts, setThoughts] = useState('');
   const {t, i18n} = useTranslation();
 
   const onSituationChange = (value) => setSituation(value);
   const handlePercentValue = (value) => {
     if (value === '' || value.match('\D+')) {
-      setPersent('');
+      setPercent('');
       return;
     }
     if (value < 0 || value > 100) {
       return;
     }
-    setPersent(value);
+    setPercent(value);
   };
 
   const handleSubmit = (event) => {
@@ -36,7 +36,7 @@ export const Survey = (props) => {
   }
 
   return (
-    <main className="flex flex-col items-center w-full flex-1 py-16 px-20 overflow-y-auto">
+    <main className="flex flex-col items-center w-full flex-1 py-16 px-10 overflow-y-auto">
       <div className="w-full max-w-xl flex flex-col content-center">
         <h2 className='text-3xl font-medium mb-6 text-zinc-900 dark:text-zinc-200'>
           {t('How do you feeling?')}
@@ -62,6 +62,7 @@ export const Survey = (props) => {
               <Textarea value={thoughts} onChange={(value) => setThoughts(value)}/>
             </label>
           </form>
+          <div className="flex flex-col items-center md:block">
           <button
             type='submit'
             onClick={handleSubmit}
@@ -69,6 +70,7 @@ export const Survey = (props) => {
           >
             {t('Submit')}
           </button>
+          </div>
         </div>
       </div>
     </main>
