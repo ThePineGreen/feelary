@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 import Layout from '../components/Layout';
 import '../styles/globals.css';
+import '../i18n/i18n';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({Component, pageProps}) {
 
   const theme = useTheme();
   return (

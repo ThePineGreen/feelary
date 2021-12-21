@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Input } from "./Input";
-import { InputLabel } from "./InputLabel";
-import { Textarea } from "./Textarea";
+import React, {useState} from "react";
+import {Input} from "./Input";
+import {InputLabel} from "./InputLabel";
+import {Textarea} from "./Textarea";
+import {useTranslation} from "react-i18next";
 
 export const Survey = (props) => {
 
@@ -9,6 +10,7 @@ export const Survey = (props) => {
   const [feel, setFeel] = useState('');
   const [percent, setPersent] = useState('');
   const [thoughts, setThoughts] = useState('');
+  const {t, i18n} = useTranslation();
 
   const onSituationChange = (value) => setSituation(value);
   const handlePercentValue = (value) => {
@@ -37,7 +39,7 @@ export const Survey = (props) => {
     <main className="flex flex-col items-center w-full flex-1 py-16 px-20 overflow-scroll">
       <div className="w-full max-w-xl flex flex-col content-center">
         <h2 className='text-3xl font-medium mb-6 text-zinc-900 dark:text-zinc-200'>
-          How do you feeling today?
+          {t('How do you feeling?')}
         </h2>
         <div className='w-full max-w-xl'>
           <form className="grid grid-cols-1 gap-6">
@@ -45,19 +47,19 @@ export const Survey = (props) => {
               <InputLabel>
                 Situation
               </InputLabel>
-              <Textarea required value={situation} onChange={onSituationChange} />
+              <Textarea required value={situation} onChange={onSituationChange}/>
             </label>
             <label className="block mt-4">
               <InputLabel>Feel</InputLabel>
-              <Input required value={feel} onChange={(value) => setFeel(value)} />
+              <Input required value={feel} onChange={(value) => setFeel(value)}/>
             </label>
             <label className='block'>
               <InputLabel>How much in %</InputLabel>
-              <Input value={percent} onChange={handlePercentValue} />
+              <Input value={percent} onChange={handlePercentValue}/>
             </label>
             <label className='block mt-4'>
               <InputLabel>Automatic Thoughts</InputLabel>
-              <Textarea value={thoughts} onChange={(value) => setThoughts(value)} />
+              <Textarea value={thoughts} onChange={(value) => setThoughts(value)}/>
             </label>
             <button
               type='submit'
