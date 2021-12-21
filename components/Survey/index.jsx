@@ -45,30 +45,30 @@ export const Survey = (props) => {
           <form className="grid grid-cols-1 gap-6">
             <label className='block'>
               <InputLabel>
-                Situation
+                {t('Situation')}
               </InputLabel>
               <Textarea required value={situation} onChange={onSituationChange}/>
             </label>
             <label className="block mt-4">
-              <InputLabel>Feel</InputLabel>
+              <InputLabel>{t('Feelings')}</InputLabel>
               <Input required value={feel} onChange={(value) => setFeel(value)}/>
             </label>
             <label className='block'>
-              <InputLabel>How much in %</InputLabel>
+              <InputLabel>{t('How much in %')}</InputLabel>
               <Input value={percent} onChange={handlePercentValue}/>
             </label>
             <label className='block mt-4'>
-              <InputLabel>Automatic Thoughts</InputLabel>
+              <InputLabel>{t('Automatic thoughts')}</InputLabel>
               <Textarea value={thoughts} onChange={(value) => setThoughts(value)}/>
             </label>
-            <button
-              type='submit'
-              onClick={handleSubmit}
-              className='rounded-md h-10 px-4 py-2 bg-teal-400 w-[6rem] shadow-md text-white dark:text-zinc-800 shadow-teal-500/50 hover:bg-teal-500 active:bg-teal-600'
-            >
-              Submit
-            </button>
           </form>
+          <button
+            type='submit'
+            onClick={handleSubmit}
+            className='rounded-md h-10 px-4 mt-8 py-2 bg-teal-400 shadow-md text-white dark:text-zinc-800 shadow-teal-500/50 hover:bg-teal-500 active:bg-teal-600'
+          >
+            {t('Submit')}
+          </button>
         </div>
       </div>
     </main>

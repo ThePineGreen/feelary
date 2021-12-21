@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Result } from '../components/Result';
+import { Result } from '../components/Result'
 import { Survey } from '../components/Survey';
 
 export default function Home() {
