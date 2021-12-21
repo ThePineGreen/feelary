@@ -2,9 +2,11 @@ import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import { Calendar } from "./Calendar";
 import { Progress } from "./Progress";
+import {useTranslation} from "react-i18next";
 
 export const Result = (props) => {
   const componentRef = useRef();
+  const {t, i18n} = useTranslation();
 
   const handleClick = () => {
     props.resetForm();
@@ -15,7 +17,7 @@ export const Result = (props) => {
   });
 
   return (
-    <div ref={componentRef} className="mx-auto w-7/12 mt-16 print:flex print:items-center print:justify-center print:px-12">
+    <div ref={componentRef} className="mx-auto w-7/12 mt-16 print:flex print:items-center print:justify-center print:px-12 overflow-y-auto">
       <div className="flex flex-col">
         <div className="flex flex-row mb-4">
           <p className="hidden print:block font-['Arsenal'] font-semibold text-zinc-800 text-xl">feelary</p>
@@ -30,11 +32,11 @@ export const Result = (props) => {
               </h4>
             </div>
             <div className="flex flex-col ml-8">
-              <h3 className="text-2xl text-zinc-800 dark:text-zinc-200">Situation</h3>
+              <h3 className="text-2xl text-zinc-800 dark:text-zinc-200">{t('Situation')}</h3>
               <p className="mt-1 text-zinc-800 dark:text-zinc-400">
                 {props.result?.situation}
               </p>
-              <h3 className="mt-4 text-2xl text-zinc-800 dark:text-zinc-200">Automatic Thoughts</h3>
+              <h3 className="mt-4 text-2xl text-zinc-800 dark:text-zinc-200">{t('Automatic thoughts')}</h3>
               <p className="mt-1 text-zinc-800 dark:text-zinc-400">
                 {props.result?.thoughts}
               </p>
@@ -48,14 +50,14 @@ export const Result = (props) => {
           onClick={handleSave}
           className="mt-16 text-white dark:text-zinc-900 bg-teal-400 shadow-md shadow-teal-400/50 hover:bg-teal-500 active:bg-teal-600 py-2 px-4 rounded mx-auto print:hidden"
         >
-          Save as PDF
+          {t('Save as PDF')}
         </button>
         <button
           type="button"
           onClick={handleClick}
           className="mt-16 ml-4 border text-teal-400 dark:text-teal-400 border-teal-400 shadow-md shadow-teal-400/20 hover:shadow-teal-400/50 active:shadow-teal-400/70 py-2 px-4 rounded mx-auto print:hidden"
         >
-          New record
+          {t('New record')}
         </button>
       </div>
     </div>
