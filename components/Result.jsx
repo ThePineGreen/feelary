@@ -17,7 +17,7 @@ export const Result = (props) => {
   });
 
   return (
-    <div ref={componentRef} className="mx-auto w-7/12 mt-16 print:flex print:items-center print:justify-center print:px-12">
+    <div ref={componentRef} className="mx-auto w-7/12 mt-16 print:flex print:items-center print:justify-center print:px-12 overflow-y-auto">
       <div className="flex flex-col">
         <div className="flex flex-row mb-4">
           <p className="hidden print:block font-['Arsenal'] font-semibold text-zinc-800 text-xl">feelary</p>

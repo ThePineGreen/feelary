@@ -36,7 +36,7 @@ export const Survey = (props) => {
   }
 
   return (
-    <main className="flex flex-col items-center w-full flex-1 py-16 px-20 overflow-scroll">
+    <main className="flex flex-col items-center w-full flex-1 py-16 px-20 overflow-y-auto">
       <div className="w-full max-w-xl flex flex-col content-center">
         <h2 className='text-3xl font-medium mb-6 text-zinc-900 dark:text-zinc-200'>
           {t('How do you feeling?')}
