@@ -33,7 +33,7 @@ export function getMonthName(month) {
   // lover case for safari cases in iOS < v10.2
   const userLang = (navigator.language || navigator.userLanguage).toLowerCase();
   if (userLang === 'ru' || userLang === 'ru-ru') {
-    return monthsRu[month-1];
+    return monthsRu[month];
   }
-  return monthsEn[month-1];
+  return monthsEn[month];
 }
